@@ -1,0 +1,7 @@
+[workspace]
+members = [
+  "migration",
+
+  "service",
+  "api"
+]

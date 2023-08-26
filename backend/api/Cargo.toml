@@ -1,0 +1,42 @@
+[package]
+name = "api"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+service = { path = "../service" }
+
+tokio = { version = "1", features = ["full"] }
+
+axum = { version = "0.6", features = ["macros"] }
+tower = "0.4"
+http = "0.2"
+
+serde = { version = "1.0", features = ["derive"] }
+
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+eyre = "0.6"
+color-eyre = "0.6"
+
+dotenvy = "0.15"
+humantime = "2.1"
+
+[dependencies.tower-http]
+version = "0.4"
+features = [
+  "compression-full",
+  "cors"
+]
+
+[dependencies.sea-orm]
+version = "0.12"
+default-features = false
+features = [
+  "runtime-tokio-rustls",
+  "sqlx-postgres",
+  "debug-print",
+  "with-time"
+]
